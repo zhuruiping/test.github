@@ -1,0 +1,61 @@
+@import "./c.scss";
+
+body {
+    background: red
+}
+/*这是一行注释*/
+//这是静默注释
+article a {
+
+    color:blue ;
+    :hover {
+        color: red
+    }
+
+}
+$color:#f90;
+$width:300px*2;
+
+nav{
+    $width:400px !default;
+    width:$width;
+    color:$color
+}
+
+@mixin round-conner($num,$width){
+    -moz-border-radius:$num;
+    -webkit-border-radius:$num;
+    border-radius:$num;
+    width:$width;
+}
+
+div{
+    width:100px;
+    height:$width;
+   @include round-conner($num:10px,$width:50px)
+}
+p{
+    text-align:center;
+    @include round-conner($num:30px,$width:20px)
+}
+
+ span{
+     @if(1==1){
+         border:1px solid black;
+     }
+     @if(2>3){
+         background:blueviolet;
+     }
+ }
+
+ @for $i from 1 through 3{
+    .item-#{$i}{
+      width:2em*$i;
+    }
+ }
+ 
+ @for $i from 1 to 3{
+   .item-#{$i}{
+     width:2em*$i;
+   }
+ }
